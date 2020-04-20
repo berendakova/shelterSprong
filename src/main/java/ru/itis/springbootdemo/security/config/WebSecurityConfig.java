@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/created").hasAuthority("ADMIN")
                 .antMatchers("/shelter").permitAll()
                 .antMatchers("/profile").authenticated()
-                .antMatchers("/").authenticated();
+                .antMatchers("/").authenticated()
+                .antMatchers("/pets").permitAll();
         http.formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")

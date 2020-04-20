@@ -18,12 +18,13 @@ public class SignUpController {
     private SignUpService service;
 
     @GetMapping("/signUp")
-    public String getSignUpPage(Authentication authentication) {
+    public String getSignUpPage(Authentication authentication, Model model) {
         if(authentication == null) {
             return "sign_up";
         }
         else
         {
+            model.addAttribute("authentication",authentication);
             return "redirect:/shelter";
         }
 
