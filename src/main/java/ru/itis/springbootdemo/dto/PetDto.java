@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.itis.springbootdemo.models.Pet;
+import ru.itis.springbootdemo.models.StatusPet;
 import ru.itis.springbootdemo.models.User;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class PetDto {
     private String sex;
     private String breed;
     private String disease;
-
+    private StatusPet status;
     public static PetDto from(Pet pet) {
         return PetDto.builder()
                 .name(pet.getName())
@@ -36,6 +37,7 @@ public class PetDto {
                 .disease(pet.getDisease())
                 .sex(pet.getSex())
                 .img(pet.getSex())
+                .status(pet.getStatus())
                 .build();
     }
 
