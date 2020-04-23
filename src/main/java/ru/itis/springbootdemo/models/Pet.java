@@ -27,8 +27,12 @@ public class Pet {
     private String sex;
     private String breed;
     private String disease;
+    private int userId;
 
     @Enumerated(value = EnumType.STRING)
     private StatusPet status;
 
+    public Pet(String name) {
+        this.name = name;
+    }
 }

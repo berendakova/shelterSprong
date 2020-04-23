@@ -27,6 +27,8 @@ public class PetDto {
     private String breed;
     private String disease;
     private StatusPet status;
+    private int userId;
+    
     public static PetDto from(Pet pet) {
         return PetDto.builder()
                 .name(pet.getName())
@@ -36,10 +38,12 @@ public class PetDto {
                 .description(pet.getDescription())
                 .disease(pet.getDisease())
                 .sex(pet.getSex())
-                .img(pet.getSex())
+                .img(pet.getImg())
                 .status(pet.getStatus())
+                .userId(0)
                 .build();
     }
+
 
     public static List<PetDto> from(List<Pet> pets) {
         return pets.stream()

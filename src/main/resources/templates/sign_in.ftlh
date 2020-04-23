@@ -32,7 +32,10 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="/shelter">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="/pets">Pets</a></li>
                 <#if authentication?has_content>
+
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/logout">Log Out</a></li>
                 <#else>

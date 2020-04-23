@@ -1,6 +1,7 @@
 package ru.itis.springbootdemo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,11 @@ public class PetsListController {
     private PetsService petsService;
 
     @GetMapping("/pets")
-    public String getPage(Model model){
+    public String getPage(Model model, Authentication authentication){
+        if(authentication != null){
+            model.addAttribute("authentication", authentication);
+            model.addAttribute("role",authentication.getAuthorities().toString());
+        }
         List<PetDto> pets = new ArrayList<>();
         List<PetDto> petsAll = petsService.getAllPets();
         for (int i = 0; i < petsAll.size(); i++) {
@@ -26,6 +31,7 @@ public class PetsListController {
                 pets.add(petsAll.get(i));
             }
         }
+        System.out.println(authentication)  ;
         model.addAttribute("pets", pets);
         return "petsList";
     }

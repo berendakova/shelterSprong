@@ -9,7 +9,8 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
+          rel="stylesheet">
 
     <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -35,7 +36,9 @@
             <ul>
                 <li><a href="/shelter">Home</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="/pets">Pets</a></li>
                 <#if authentication?has_content>
+
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/logout">Log Out</a></li>
                 <#else>
@@ -54,13 +57,19 @@
             <header class="section-header" style="margin-top: 60px">
                 <h3>Our pets</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-<#--                <c:if test="${user == 1}">
-                    <a href="/add_pet"><h4>Add pet</h4></a>
-                </c:if>-->
-            </header>
 
+                <#if role?has_content>
+                <#if role == '[ADMIN]'>
+                <a href="/pets/created"><h4>Created pet</h4></a>
+                <br>
+                </#if>
+                <#else>
+
+                </#if>
+            </header>
             <div class="row">
                 <#list pets as pet>
+
                     <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
                         <div class="about-img">
                             <img src="${pet.getImg()}" style="width:27em; height:17em;" alt="">
@@ -71,40 +80,43 @@
                             <h4 class="title"><a href="">${pet.getName()}</a></h4>
                             <p class="description">${pet.getDescription()}</p>
 
-<#--                            <a href="/our_pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
-                            <c:if test="${user == 1}">
-                                <a href="/update_pet/${pet.getId()}"><h4>Update pet</h4></a>
-                                <a href="/delete_pet/${pet.getId()}"><h4>Delete pet</h4></a>
-                            </c:if>-->
+                            <#if role?has_content>
+                                <#if role == '[ADMIN]'>
+                                    <a href="/pets/${pet.getId()}/delete"><h4>Delete pet</h4></a>
+                                    <br>
+                                </#if>
+                            <#else>
 
+                            </#if>
                         </div>
                     </div>
+
+
                 </#list>
 
-<#--                <c:forEach var="pet" items="${listPet}">
-                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
-                        <div class="about-img">
-                            <img src="${pet.getImg()}" style="width:27em; height:17em;" alt="">
-                        </div>
-                    </div>
+                <#--                <c:forEach var="pet" items="${listPet}">
+                                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
+                                        <div class="about-img">
+                                            <img src="${pet.getImg()}" style="width:27em; height:17em;" alt="">
+                                        </div>
+                                    </div>
 
-                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">
-                            <h4 class="title"><a href="">${pet.getName()}</a></h4>
-                            <p class="description">${pet.getDescription()}</p>
+                                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
+                                        <div class="box">
+                                            <h4 class="title"><a href="">${pet.getName()}</a></h4>
+                                            <p class="description">${pet.getDescription()}</p>
 
 
-                            <a href="/our_pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
-                            <c:if test="${user == 1}">
-                                <a href="/update_pet/${pet.getId()}"><h4>Update pet</h4></a>
-                                <a href="/delete_pet/${pet.getId()}"><h4>Delete pet</h4></a>
-                            </c:if>
+                                            <a href="/our_pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
+                                            <c:if test="${user == 1}">
+                                                <a href="/update_pet/${pet.getId()}"><h4>Update pet</h4></a>
+                                                <a href="/delete_pet/${pet.getId()}"><h4>Delete pet</h4></a>
+                                            </c:if>
 
-                        </div>
-                    </div>
+                                        </div>
+                                    </div>
 
-                </c:forEach>-->
-
+                                </c:forEach>-->
 
 
             </div>
