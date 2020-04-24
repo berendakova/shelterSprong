@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface PetsService {
     List<PetDto> getAllPets();
-
+    PetDto getPetById(Integer petId);
     void deletePet(Integer petId);
 }

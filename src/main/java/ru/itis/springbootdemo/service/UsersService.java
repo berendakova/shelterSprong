@@ -8,4 +8,5 @@ public interface UsersService {
     List<UserDto> getAllUsers();
 
     void deleteUser(Long userId);
+
 }

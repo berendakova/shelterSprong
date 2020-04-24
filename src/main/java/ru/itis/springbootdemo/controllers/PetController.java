@@ -2,19 +2,25 @@ package ru.itis.springbootdemo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.itis.springbootdemo.dto.CreatedPetDto;
 import ru.itis.springbootdemo.dto.PetDto;
 import ru.itis.springbootdemo.dto.SignUpDto;
 import ru.itis.springbootdemo.exceptions.NotCorrectSamePassword;
+import ru.itis.springbootdemo.models.Pet;
+import ru.itis.springbootdemo.repositories.PetsRepository;
 import ru.itis.springbootdemo.service.CreatePetService;
 import ru.itis.springbootdemo.service.PetsService;
 import ru.itis.springbootdemo.service.UsersService;
+
+import java.util.Optional;
 
 @Controller
 public class PetController {
@@ -23,6 +29,7 @@ public class PetController {
 
     @Autowired
     private PetsService petsService;
+
 
     @GetMapping("/pets/created")
     @PreAuthorize("hasAuthority('ADMIN')")

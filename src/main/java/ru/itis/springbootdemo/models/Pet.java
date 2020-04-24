@@ -27,12 +27,14 @@ public class Pet {
     private String sex;
     private String breed;
     private String disease;
-    private int userId;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "itis_user")
+    private User user;
 
     @Enumerated(value = EnumType.STRING)
     private StatusPet status;
 
-    public Pet(String name) {
-        this.name = name;
-    }
+
+
 }

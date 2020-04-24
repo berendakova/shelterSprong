@@ -27,8 +27,8 @@ import java.util.Set;
         private String address;
         private String description;
 
-        @ManyToMany(mappedBy = "shelter")
-        private Set<Owner> sheltersOwner;
+    @ManyToMany(mappedBy = "shelterOwner")
+    private Set<Owner> sheltersOwner;
     }
 
 

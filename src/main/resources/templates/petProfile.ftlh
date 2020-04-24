@@ -25,8 +25,6 @@
     <link href="../css/style.css" rel="stylesheet">
 
 </head>
-
-<body>
 <header id="header">
     <div class="container">
         <div class="logo float-left">
@@ -35,7 +33,7 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="/shelter">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="/shelter">About Us</a></li>
                 <li><a href="/pets">Pets</a></li>
                 <#if authentication?has_content>
 
@@ -49,62 +47,48 @@
         </nav>
     </div>
 </header>
-
 <main>
     <section id="pets" class="section-bg">
-        <div class="container">
+        <div class="container" style="height: 100%">
 
             <header class="section-header" style="margin-top: 60px">
                 <h3>Our pets</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-
-                <#if role?has_content>
-                <#if role == '[ADMIN]'>
-                <a href="/pets/created"><h4>Created pet</h4></a>
-                <br>
-                </#if>
-                <#else>
-
-                </#if>
             </header>
+
             <div class="row">
-                <#list pets as pet>
 
-                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
-                        <div class="about-img">
-                            <img src="${pet.getImg()}" style="width:27em; height:17em;" alt="">
-                        </div>
+                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="about-img">
+                        <img src="/${pet.getImg()}" style="width:27em; height:17em; margin-bottom: 430px" alt="">
+
                     </div>
-                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">
-                            <h4 class="title"><a href="">${pet.getName()}</a></h4>
-                            <p class="description">${pet.getDescription()}</p>
-                            <a href="/pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
-                            <#if role?has_content>
-                                <#if role == '[ADMIN]'>
-                                    <a href="/pets/${pet.getId()}/delete"><h4>Delete pet</h4></a>
-                                    <br>
-                                </#if>
-                            <#else>
+                </div>
 
+                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h4 class="title">${pet.getName()}</h4>
+                        <p class="description">${pet.getDescription()}</p>
+                        <h6 class="description">sex : ${pet.getSex()}</h6>
+                        <h6 class="description">breed : ${pet.getBreed()}</h6>
+                        <h6 class="description">disease : ${pet.getDisease()}</h6>
+                        <#if authentication?has_content>
+
+                        <form method="post">
+                            <button type="submit">Take home</button>
+                        </form>
+                            <#if statusPet == "IN_HAND">
+                                <p>This pet in hand!</p>
                             </#if>
-                        </div>
+                        </#if>
+
                     </div>
-                </#list>
 
+                </div>
             </div>
-
         </div>
-    </section><!-- #services -->
-
+    </section>
 </main>
-
-
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-<!-- Uncomment below i you want to use a preloader -->
-<!-- <div id="preloader"></div> -->
-
-<!-- JavaScript Libraries -->
 <script src="../lib/jquery/jquery.min.js"></script>
 <script src="../lib/jquery/jquery-migrate.min.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -121,4 +105,5 @@
 
 <!-- Template Main Javascript File -->
 <script src="../js/main.js"></script>
-</body>
+
+</html>

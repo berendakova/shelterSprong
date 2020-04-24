@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>${user.name}</h1>
-<h1>${user.email}</h1>
+<h1>${pet.name}</h1>
 </body>
 </html>
