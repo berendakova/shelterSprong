@@ -30,6 +30,9 @@ public class User {
     @NotBlank(message = "password can't empty!")
     private String hashPassword;
 
+    private String googleName;
+    private String googleUsername;
+
     private LocalDateTime createdAt;
 
 

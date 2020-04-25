@@ -9,43 +9,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="../normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
-    <!-- Main Stylesheet File -->
-    <link href="../css/style.css" rel="stylesheet">
+    <#include "include/links.ftlh">
 </head>
 <body>
-<header id="header">
-    <div class="container">
-        <div class="logo float-left">
-            <h1 class="text-light"><a href="#intro" class="scrollto"><span>Shelter</span></a></h1>
-        </div>
-        <nav class="main-nav float-right d-none d-lg-block">
-            <ul>
-                <li><a href="/shelter">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="/pets">Pets</a></li>
-                <#if authentication?has_content>
-
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/logout">Log Out</a></li>
-                <#else>
-                    <li><a href="/signIn">Sign In</a></li>
-                    <li><a href="/signUp">Sign Up</a></li>
-                </#if>
-            </ul>
-        </nav>
-    </div>
-</header>
+<#include "include/header.ftlh">
 <form action="/signIn" method="post" style="margin-top: 150px">
     <h1>Sign In</h1>
     <fieldset>
@@ -56,8 +23,6 @@
     </fieldset>
     <button type="submit">Sign In</button>
 </form>
-
 </body>
-
-
+<#include "include/scripts.ftlh">
 </html>

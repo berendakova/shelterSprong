@@ -32,8 +32,7 @@ public class PetController {
 
 
     @GetMapping("/pets/created")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public String getCreatedPage() {
+    public String getCreatedPage(Authentication authentication) {
         return "petFormCreate";
 
     }
@@ -49,7 +48,7 @@ public class PetController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public String deletePet(@PathVariable("pet-id") Integer petId) {
         petsService.deletePet(petId);
-        return "redirect:/shelterx  ";
+        return "redirect:/shelter";
     }
 
     @GetMapping("/pets/{pet-id}/delete")

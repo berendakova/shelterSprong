@@ -26,12 +26,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         http.authorizeRequests()
+
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/created").hasAuthority("ADMIN")
                 .antMatchers("/shelter").permitAll()
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/").authenticated()
-                .antMatchers("/pets").permitAll();
+                .antMatchers("/pets").permitAll()
+                .antMatchers("/pets/created").hasAuthority("ADMIN")
+                .and()
+                .exceptionHandling().accessDeniedPage("/error404");
         http.formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")
