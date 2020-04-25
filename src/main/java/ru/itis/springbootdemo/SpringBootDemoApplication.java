@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import ru.itis.springbootdemo.controllers.ShelterController;
 
 @SpringBootApplication
 public class SpringBootDemoApplication {
@@ -15,6 +16,8 @@ public class SpringBootDemoApplication {
     }
 
     public static void main(String[] args) {
+        ShelterController shelterController = new ShelterController();
+        System.out.println(shelterController.getJSON("https://some-random-api.ml/facts/dog"));
         SpringApplication.run(SpringBootDemoApplication.class, args);
     }
 

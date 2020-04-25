@@ -17,6 +17,12 @@
         <div class="row justify-content-center align-self-center">
             <div class="col-md-6 intro-info order-md-first order-last">
                 <h2>Save <br>the animal's life<span> and it will save your life </span></h2>
+                <h4>
+                    <#if joke?has_content>
+                        ${joke}
+                    <#else>
+                    </#if>
+                </h4>
                 <div>
                     <a href="#about" class="btn-get-started scrollto">I want save life</a>
                 </div>
@@ -39,13 +45,22 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="about-content">
                         <h2>About Us</h2>
+                        <#if a?has_content>
+                            <p>${a}</p>
+                        <#else>
+                        </#if>
                         <h3>The best thing that happened to a man is friendship with an animal</h3>
-                        <p>This site is designed to support an animal shelter, you can take a cat or dog to your home</p>
-                        <p>But this is a very responsible decision, it requires patience, an immense love for animals, so we have prepared tips for you</p>
+                        <p>This site is designed to support an animal shelter, you can take a cat or dog to your
+                            home</p>
+                        <p>But this is a very responsible decision, it requires patience, an immense love for animals,
+                            so we have prepared tips for you</p>
                         <ul>
                             <li><i class="ion-android-checkmark-circle"></i> Discuss this decision with loved ones</li>
-                            <li><i class="ion-android-checkmark-circle"></i> Go to the shelter and get to know the animal</li>
-                            <li><i class="ion-android-checkmark-circle"></i> Be prepared that the animal needs a corner in the house/li>
+                            <li><i class="ion-android-checkmark-circle"></i> Go to the shelter and get to know the
+                                animal
+                            </li>
+                            <li><i class="ion-android-checkmark-circle"></i> Be prepared that the animal needs a corner
+                                in the house/li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +72,9 @@
             <div class="row">
                 <div class="col-lg-9 text-center text-lg-left">
                     <h3 class="cta-title">Call To Action</h3>
-                    <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum.</p>
                 </div>
                 <div class="col-lg-3 cta-btn-container text-center">
                     <a class="cta-btn align-middle" href="#">Call To Action</a>

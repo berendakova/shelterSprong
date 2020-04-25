@@ -12,4 +12,5 @@ public class CreatedPetDto {
     private String sex;
     private String breed;
     private String disease;
+
 }
