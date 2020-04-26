@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-6 intro-img order-md-last order-first">
-                <img src="/img/1dog-.jpg" alt="" class="img-fluid">
+                <img src="/static/img/upload/1dog-.jpg" alt="" class="img-fluid">
             </div>
         </div>
     </div>
