@@ -47,13 +47,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").authenticated()
                 .antMatchers("/pets").permitAll()
                 .antMatchers("/pets/created").hasAuthority("ADMIN")
+                .antMatchers("/pets/upload").authenticated()
+                .antMatchers("/inhand").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/error404");
         http.formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/")
-                .failureUrl("/signIn?error")
+                .failureUrl("/error")
                 .permitAll();
     }
 

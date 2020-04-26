@@ -65,14 +65,16 @@
 <#include "include/header.ftlh">
 
 <form method="POST" style="margin-top: 150px"  enctype="multipart/form-data" id="fileUploadForm" >
-    Description: <br/>
-    <input type="text" name="description" style="width:350px;"/>
+    <p style="margin-bottom: 20px">You can upload jpg-file with your pet</p>
+    <br/>
+    <input type="text" name="description"  id="reg"style="width:350px;"/>
     <br/><br/>
 
-    File to upload (1): <input type="file" name="files"/><br />
+    <input type="file" name="files"/><br />
 
-    <input type="submit" value="Submit" id="submitButton"/>
-    <h2>Upload Results:</h2>
+    <input style="margin-top: 30px" type="submit" value="Submit" id="reg" />
+    <br/><br/>
+    <h4>Upload Results:</h4>
     <div style="border:1px solid #ccc;padding: 5px;">
         <span id="result"></span>
     </div>

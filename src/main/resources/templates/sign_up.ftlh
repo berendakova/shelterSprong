@@ -12,19 +12,28 @@
 </head>
 <body>
 <#include "include/header.ftlh">
-<form method="post"style="margin-top: 150px" action="/signUp">
+<form method="post" style="margin-top: 150px" action="/signUp">
     <h1>Sign Up</h1>
     <fieldset>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Ivan Petrov">
         <label for="mail">Email:</label>
         <input type="email" id="mail" name="email" placeholder="example@example.com">
-        <label for="password1">Password:</label>
-        <input type="password" id="password1" name="password">
-        <label for="password2">Password replay:</label>
-        <input type="password" id="password2" name="repeatedPassword">
-        <br>
-        <br>
+        <#if errorExistingUser?has_content>
+        <p style="color: red">${errorExistingUser}<p>
+            </#if>
+            <label for="password1">Password:</label>
+            <input type="password" id="password1" name="password">
+            <label for="password2">Password replay:</label>
+            <input type="password" id="password2" name="repeatedPassword">
+            <#if passwordError?has_content>
+              <p style="color: red">${passwordError}</p>
+            </#if>
+        <#if nullError?has_content>
+            <p style="color: red">${nullError}</p>
+        </#if>
+            <br>
+            <br>
     </fieldset>
     <button type="submit" id="reg">Sign Up</button>
 </form>

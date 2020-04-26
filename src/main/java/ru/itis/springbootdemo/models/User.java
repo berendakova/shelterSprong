@@ -23,11 +23,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "userId")
     private Long id;
-    @NotBlank(message = "username can't empty!")
+
     private String name;
-    @NotBlank(message = "email can't empty!")
     private String email;
-    @NotBlank(message = "password can't empty!")
     private String hashPassword;
 
     private String googleName;

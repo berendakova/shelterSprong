@@ -32,7 +32,7 @@
                             <img src="${img}" style="width:27em; height:17em;" alt="">
                         </div>
                     </div>
-                    </div>
+
                 </#list>
 
             </div>
