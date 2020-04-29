@@ -32,6 +32,7 @@ public class PetController {
 
 
     @GetMapping("/pets/created")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String getCreatedPage(Authentication authentication) {
         return "petFormCreate";
 
@@ -39,9 +40,20 @@ public class PetController {
 
     @PostMapping("/pets/created")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String createdHandler(CreatedPetDto form, Model model) {
+    public String createdHandler(CreatedPetDto form, Model model, Authentication authentication) {
+        String nullField = "Fields can't be null";
+        if(form.getAge().equals("")||form.getBreed().equals("")||form.getDescription().equals("")||
+                form.getName().equals("")||form.getImg().equals("")||form.getDisease().equals("")||form.getSex().equals("")
+        ||form.getSex().equals("Choosing...")){
+
+                model.addAttribute("nullEx",nullField);
+                return "petFormCreate";
+        }
+        if(authentication!=null){
+            model.addAttribute("authentication",authentication);
+        }
         createPetService.created(form);
-        return "/shelter";
+        return "shelter";
     }
 
     @PostMapping("/pets/{pet-id}/delete")

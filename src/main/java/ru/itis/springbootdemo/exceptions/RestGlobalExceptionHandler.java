@@ -39,5 +39,4 @@ public class RestGlobalExceptionHandler extends ResponseEntityExceptionHandler {
         }
         return HttpStatus.valueOf(statusCode);
     }
-
 }

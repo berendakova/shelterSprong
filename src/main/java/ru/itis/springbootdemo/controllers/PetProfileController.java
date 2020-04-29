@@ -37,7 +37,10 @@ public class PetProfileController {
         petsRepository.save(pet);
         model.addAttribute("user",user);
         model.addAttribute("pet",pet);
-         return "profile";
+
+        model.addAttribute("authentication",pet);
+
+         return "shelter";
     }
 
 

@@ -54,7 +54,9 @@
             <input type="text" class="form-control" id="age" name ="age" placeholder="1">
         </div>
     </div>
-
+    <#if nullEx?has_content>
+        <p style="color: red">${nullEx}</p>
+    </#if>
     <button type="submit" class="btn btn-primary">Add pet</button>
 </form>
 </body>

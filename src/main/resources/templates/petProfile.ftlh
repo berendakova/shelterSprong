@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
                     <div class="about-img">
-                        <img src="/${pet.getImg()}" style="width:27em; height:17em; margin-bottom: 430px" alt="">
+                        <img src="${pet.getImg()}" style="width:27em; height:17em; margin-bottom: 430px" alt="">
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
@@ -32,9 +32,11 @@
                         <h6 class="description">breed : ${pet.getBreed()}</h6>
                         <h6 class="description">disease : ${pet.getDisease()}</h6>
                         <#if authentication?has_content>
+                            <#if statusPet = "SHELTER">
                         <form method="post">
                             <button type="submit">Take home</button>
                         </form>
+                            </#if>
                             <#if statusPet == "IN_HAND">
                                 <p>This pet in hand!</p>
                             </#if>

@@ -23,7 +23,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import java.util.logging.Filter;
 
 @EnableWebSecurity
-@EnableOAuth2Client
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 

@@ -48,7 +48,7 @@
                     $('#fileUploadForm')[0].reset();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-
+                    console.assert("debil");
                     $("#result").html(jqXHR.responseText);
                     console.log("ERROR : ", jqXHR.responseText);
                     $("#submitButton").prop("disabled", false);
@@ -63,22 +63,21 @@
 </head>
 <body>
 <#include "include/header.ftlh">
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="margin-top: 300px">
 
-<form method="POST" style="margin-top: 150px"  enctype="multipart/form-data" id="fileUploadForm" >
-    <p style="margin-bottom: 20px">You can upload jpg-file with your pet</p>
-    <br/>
-    <input type="text" name="description"  id="reg"style="width:350px;"/>
     <br/><br/>
-
-    <input type="file" name="files"/><br />
-
-    <input style="margin-top: 30px" type="submit" value="Submit" id="reg" />
-    <br/><br/>
-    <h4>Upload Results:</h4>
+    File to upload (1): <input type="file" name="files"/><br />
+    File to upload (2): <input type="file" name="files"/><br />
+    File to upload (3): <input type="file" name="files"/><br />
+    File to upload (4): <input type="file" name="files"/><br />
+    File to upload (5): <input type="file" name="files"/><br />
+    <input type="submit" value="Submit" id="submitButton"/>
+    <h2>Upload Results:</h2>
     <div style="border:1px solid #ccc;padding: 5px;">
         <span id="result"></span>
     </div>
 </form>
+
 
 <#include "include/scripts.ftlh">
 </body>

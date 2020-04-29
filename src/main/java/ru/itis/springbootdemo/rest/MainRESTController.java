@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 @RestController
 public class MainRESTController {
 
-    private static String UPLOAD_DIR = "/home/tanya/IdeaProjects/shelterSpring/src/main/resources/static/img/upload";
+    private static String UPLOAD_DIR = "/home/tanya/IdeaProjects/Shelter/shelterSpring/src/main/resources/static/img/upload";
 
     @PostMapping("/rest/uploadMultiFiles")
     public ResponseEntity<?> multiUploadFileModel(@ModelAttribute UploadForm form) {
@@ -27,7 +27,7 @@ public class MainRESTController {
         try {
 
             result = this.saveUploadedFiles(form.getFiles());
-
+            System.out.println("SAVE");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +43,6 @@ public class MainRESTController {
 
         // Make sure directory exists!
         File uploadDir = new File(UPLOAD_DIR);
-        uploadDir.mkdirs();
 
         StringBuilder sb = new StringBuilder();
 
@@ -58,6 +57,7 @@ public class MainRESTController {
             Path path = Paths.get(uploadFilePath);
             Files.write(path, bytes);
 
+            System.out.println("HERE");
             sb.append(uploadFilePath).append("<br/>");
         }
         return sb.toString();

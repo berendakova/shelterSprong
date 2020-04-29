@@ -1,6 +1,7 @@
 package ru.itis.springbootdemo.controllers;
 
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +15,17 @@ import java.util.List;
 public class InHandController {
 
     @GetMapping("/inhand")
-    public String getPage(Model model) {
+    public String getPage(Authentication authentication,Model model) {
+
+        if (authentication!= null) {
+            model.addAttribute("authentication", authentication);
+        }
         String[] imgs = getFiles();
         for (int i = 0; i < imgs.length; i++) {
             imgs[i] = "/img/upload/" + imgs[i];
         }
-        model.addAttribute("img", imgs);
+
+        model.addAttribute("imgs", imgs);
         return "inhand";
     }
 

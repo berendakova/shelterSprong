@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 
@@ -27,8 +28,19 @@ import java.util.Set;
         private String address;
         private String description;
 
-    @ManyToMany(mappedBy = "shelterOwner")
-    private Set<Owner> sheltersOwner;
+    @ManyToMany(mappedBy = "shelters")
+    private List<Owner> owners;
+
+
+    public void addOwner(Owner owner) {
+        owners.add(owner);
+        owner.getShelters().add(this);
+    }
+
+    public void removeOwner(Owner owner) {
+        owners.remove(owner);
+        owner.getShelters().remove(this);
+    }
     }
 
 

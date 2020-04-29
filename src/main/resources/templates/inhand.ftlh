@@ -20,13 +20,11 @@
         <div class="container">
 
             <header class="section-header" style="margin-top: 60px">
-                <h3>Our pets</h3>
+                <h3>Our pets in HAND!</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-
             </header>
             <div class="row">
-                <#list img as img>
-
+                <#list imgs as img>
                     <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
                         <div class="about-img">
                             <img src="${img}" style="width:27em; height:17em;" alt="">
