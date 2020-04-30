@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.exceptions.NotCorrectSamePassword;
+
 import ru.itis.springbootdemo.repositories.UsersRepository;
 import ru.itis.springbootdemo.service.SignUpService;
 
@@ -33,7 +33,7 @@ public class SignUpController {
     }
 
     @PostMapping("/signUp")
-    public String signUp(SignUpDto form, Model model) throws NotCorrectSamePassword {
+    public String signUp(SignUpDto form, Model model) {
         String errorExistingUser = "This user is also exist";
         String passwordError = "Your password not confirm";
         String nullError = "Fields can't be null";
@@ -52,11 +52,10 @@ public class SignUpController {
                 return "sign_up";
             }
             service.signUp(form);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (NotCorrectSamePassword e){
-            model.addAttribute("message","parol");
-            return "redirect:" + UriComponentsBuilder.fromPath("/signUp").build();
-        }
+
         model.addAttribute("message"," ");
         return "redirect:/signIn";
     }

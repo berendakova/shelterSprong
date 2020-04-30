@@ -13,7 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ru.itis.springbootdemo.dto.CreatedPetDto;
 import ru.itis.springbootdemo.dto.PetDto;
 import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.exceptions.NotCorrectSamePassword;
+
 import ru.itis.springbootdemo.models.Pet;
 import ru.itis.springbootdemo.repositories.PetsRepository;
 import ru.itis.springbootdemo.service.CreatePetService;

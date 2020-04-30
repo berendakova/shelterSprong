@@ -1,6 +1,7 @@
 package ru.itis.springbootdemo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,9 @@ public class PetProfileController {
 
     @Autowired
     private UsersService usersService;
+
     @PostMapping("/pets/{pet-id}")
+    @PreAuthorize("permitAll()")
     public String takeHome(Authentication authentication, Model model, @PathVariable("pet-id") Integer petId) {
 
         UserDetailsImpl userDetails = (UserDetailsImpl)authentication.getPrincipal();
@@ -45,6 +48,7 @@ public class PetProfileController {
 
 
         @GetMapping("/pets/{pet-id}")
+        @PreAuthorize("permitAll()")
     public String getPetPage(Authentication authentication, Model model, @PathVariable("pet-id") Integer petId) {
         if (authentication != null) {
             model.addAttribute("authentication", authentication);

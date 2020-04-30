@@ -6,7 +6,6 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="/shelter">Home</a></li>
-                <li><a href="/shelter">About Us</a></li>
                 <li><a href="/pets">Pets</a></li>
                 <li><a href="/inhand">In HAND</a> </li>
                 <li><a href="/shelters">Shelters</a></li>

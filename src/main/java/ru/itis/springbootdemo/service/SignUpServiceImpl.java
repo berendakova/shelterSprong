@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.exceptions.NotCorrectSamePassword;
+
 import ru.itis.springbootdemo.models.Role;
 import ru.itis.springbootdemo.models.User;
 import ru.itis.springbootdemo.repositories.UsersRepository;
@@ -21,7 +21,7 @@ public class SignUpServiceImpl implements SignUpService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public void signUp(SignUpDto form) throws NotCorrectSamePassword {
+    public void signUp(SignUpDto form)  {
         if (form.getPassword().equals(form.getRepeatedPassword())) {
             User user = User.builder()
                     .email(form.getEmail())
@@ -32,6 +32,6 @@ public class SignUpServiceImpl implements SignUpService {
                     .build();
             usersRepository.save(user);
         }
-        else throw new NotCorrectSamePassword("Password should be same");
+
     }
 }

@@ -4,17 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="../normalize.css">
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Main Stylesheet File -->
-    <link href="../css/style.css" rel="stylesheet">
-
+    <#include "../include/links.ftlh">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -26,7 +16,18 @@
 </head>
 <body>
 
-<#include "include/header.ftlh">
+<header id="header">
+    <div class="container">
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="#intro" class="scrollto"><span>Shelter</span></a></h1>
+        </div>
+        <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+                <li><a href="/shelter">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <h4 style="position:absolute;
 width:100%;
@@ -34,5 +35,5 @@ top:50%;
 text-align:center;
 ">CAN'T FIND THIS PAGE - 404 NOT FOUND</h4>
 </body>
-<#include "include/scripts.ftlh">
+<#include "../include/scripts.ftlh">
 </html>

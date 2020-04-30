@@ -20,17 +20,7 @@ A<!DOCTYPE html>
         <div class="container">
 
             <header class="section-header" style="margin-top: 60px">
-                <h3>Our pets</h3>
-                <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-
-                <#if role?has_content>
-                <#if role == '[ADMIN]'>
-                <a href="/pets/created"><h4>Created pet</h4></a>
-                <br>
-                </#if>
-                <#else>
-
-                </#if>
+                <h3>Our pets on booking</h3>
             </header>
             <div class="row">
                 <#list pets as pet>
@@ -44,7 +34,7 @@ A<!DOCTYPE html>
                         <div class="box">
                             <h4 class="title"><a href="">${pet.getName()}</a></h4>
                             <p class="description">${pet.getDescription()}</p>
-                            <a href="/pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
+ч
                             <#if role?has_content>
                                 <#if role == '[ADMIN]'>
                                     <a href="/pets/${pet.getId()}/delete"><h4>Delete pet</h4></a>
