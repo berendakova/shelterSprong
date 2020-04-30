@@ -12,6 +12,7 @@
 </head>
 <body>
 <#include "include/header.ftlh">
+
 <form method="post" style="margin-top: 150px" action="/signUp">
     <h1>Sign Up</h1>
     <fieldset>
@@ -36,6 +37,7 @@
             <br>
     </fieldset>
     <button type="submit" id="reg">Sign Up</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 <#include "include/scripts.ftlh">
 </body>

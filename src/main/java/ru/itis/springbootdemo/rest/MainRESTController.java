@@ -31,7 +31,7 @@ public class MainRESTController {
         }
         catch (IOException e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Error: " , HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Error " , HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<String>("Uploaded ",HttpStatus.OK);

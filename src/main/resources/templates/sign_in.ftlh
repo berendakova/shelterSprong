@@ -22,6 +22,7 @@
         <input type="password" id="password" name="password">
     </fieldset>
     <button type="submit">Sign In</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 </body>
 <#include "include/scripts.ftlh">

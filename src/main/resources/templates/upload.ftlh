@@ -14,9 +14,7 @@
                 // Call Ajax Submit.
 
                 ajaxSubmitForm();
-
             });
-
         });
 
         function ajaxSubmitForm() {
@@ -71,7 +69,10 @@
     File to upload (3): <input type="file" name="files"/><br />
     File to upload (4): <input type="file" name="files"/><br />
     File to upload (5): <input type="file" name="files"/><br />
+    <br />
+    <br />
     <input type="submit" value="Submit" id="submitButton"/>
+    <br />
     <h2>Upload Results:</h2>
     <div style="border:1px solid #ccc;padding: 5px;">
         <span id="result"></span>

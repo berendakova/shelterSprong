@@ -20,4 +20,5 @@ public class LombokLoggingController {
 
         return "Howdy! Check out the Logs to see the output...";
     }
+
 }

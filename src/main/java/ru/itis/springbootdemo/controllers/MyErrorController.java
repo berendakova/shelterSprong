@@ -22,11 +22,18 @@ public class MyErrorController implements ErrorController {
             if(statusCode == HttpStatus.NOT_FOUND.value()) {
                 return "errors/error404";
             }
-            else  {
+            if(statusCode == HttpStatus.FORBIDDEN.value()){
+                return  "errors/error403";
+            }
+            if(statusCode == HttpStatus.BAD_REQUEST.value()){
+                return "errors/error400";
+            }
+
+            else{
                 return "errors/error";
             }
         }
-        return "error";
+        return "errors/error";
     }
 
     @Override

@@ -58,6 +58,7 @@
         <p style="color: red">${nullEx}</p>
     </#if>
     <button type="submit" class="btn btn-primary">Add pet</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 </form>
 </body>
 <#include "include/scripts.ftlh">

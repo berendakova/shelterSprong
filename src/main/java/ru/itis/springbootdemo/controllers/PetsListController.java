@@ -28,6 +28,7 @@ public class PetsListController {
         }
         List<PetDto> pets = new ArrayList<>();
         List<PetDto> petsAll = petsService.getAllPets();
+
         for (int i = 0; i < petsAll.size(); i++) {
             if (petsAll.get(i).getStatus().equals(StatusPet.SHELTER)){
                 pets.add(petsAll.get(i));

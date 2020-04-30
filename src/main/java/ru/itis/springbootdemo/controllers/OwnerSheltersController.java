@@ -6,10 +6,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.itis.springbootdemo.dto.OwnerDto;
+import ru.itis.springbootdemo.dto.ShelterDto;
 import ru.itis.springbootdemo.models.Owner;
 import ru.itis.springbootdemo.models.Shelter;
 import ru.itis.springbootdemo.repositories.OwnerRepository;
 import ru.itis.springbootdemo.repositories.ShelterRepository;
+import ru.itis.springbootdemo.service.OwnersService;
+import ru.itis.springbootdemo.service.ShelterService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +22,19 @@ import java.util.List;
 public class OwnerSheltersController {
 
     @Autowired
-    ShelterRepository shelterRepository;
+    ShelterService shelterService;
     @Autowired
-    OwnerRepository ownerRepository;
+    OwnersService ownersService;
 
     @GetMapping("/shelters")
     @PreAuthorize("permitAll()")
+
     public String getPage(Authentication authentication, Model model) {
         if (authentication != null) {
             model.addAttribute("authentication", authentication);
         }
-        List<Shelter> shelters = shelterRepository.findAll();
-        List<Owner> owners = ownerRepository.findAll();
+        List<ShelterDto> shelters = shelterService.getAllShelter();
+        List<OwnerDto> owners = ownersService.getAllOwners();
 
 /*
         List<String> response = new ArrayList<>();
