@@ -34,7 +34,9 @@ public class PetsListController {
                 pets.add(petsAll.get(i));
             }
         }
+
         model.addAttribute("pets", pets);
+
         return "petsList";
     }
 

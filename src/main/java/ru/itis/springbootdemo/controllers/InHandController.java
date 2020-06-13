@@ -16,10 +16,10 @@ import java.util.List;
 public class InHandController {
 
     @GetMapping("/inhand")
-        @PreAuthorize("permitAll()")
-    public String getPage(Authentication authentication,Model model) {
+    @PreAuthorize("permitAll()")
+    public String getPage(Authentication authentication, Model model) {
 
-        if (authentication!= null) {
+        if (authentication != null) {
             model.addAttribute("authentication", authentication);
         }
         String[] imgs = getFiles();

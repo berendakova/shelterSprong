@@ -32,10 +32,9 @@
                         <h6 class="description">breed : ${pet.getBreed()}</h6>
                         <h6 class="description">disease : ${pet.getDisease()}</h6>
                         <#if authentication?has_content>
-                            <#if statusPet = "SHELTER">
-                        <form method="post">
-                            <button type="submit">Take home</button>
-                        </form>
+                            <#if statusPet == "SHELTER">
+                            <a href="/pets/${pet.getId()}/take"><h4>TAKE pet</h4></a>
+
                             </#if>
                             <#if statusPet == "IN_HAND">
                                 <p>This pet in hand!</p>

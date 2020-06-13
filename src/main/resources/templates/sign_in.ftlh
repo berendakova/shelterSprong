@@ -23,7 +23,13 @@
     </fieldset>
     <button type="submit">Sign In</button>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+    <#if error?? && error == "USER_NOT_FOUND">
+        <div class="alert alert-danger m-2 p-1" role="alert">
+            <h5>Пользователь не найден</h5>
+        </div>
+    </#if>
 </form>
+
 </body>
 <#include "include/scripts.ftlh">
 </html>

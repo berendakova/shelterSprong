@@ -19,6 +19,7 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.util.logging.Filter;
 
@@ -36,7 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/created").hasAuthority("ADMIN")
                 .antMatchers("/shelter").permitAll()
@@ -47,12 +47,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pets/upload").authenticated()
                 .antMatchers("/inhand").permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/error404");
+                .exceptionHandling().accessDeniedPage("/error404")
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/shelter");
+
         http.formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("email")
                 .defaultSuccessUrl("/")
-                .failureUrl("/signIn")
+                .failureUrl("/signIn?error")
                 .permitAll();
     }
 
@@ -61,7 +64,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
-
 
 
 }

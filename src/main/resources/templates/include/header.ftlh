@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="/shelter">Home</a></li>
                 <li><a href="/pets">Pets</a></li>
-                <li><a href="/inhand">In HAND</a> </li>
+                <li><a href="/inhand">In HAND</a></li>
                 <li><a href="/shelters">Shelters</a></li>
                 <#if authentication?has_content>
                     <li><a href="/pets/upload">Upload Img</a></li>
