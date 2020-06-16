@@ -34,11 +34,13 @@
                         <#if authentication?has_content>
                             <#if statusPet == "SHELTER">
                             <a href="/pets/${pet.getId()}/take"><h4>TAKE pet</h4></a>
-
                             </#if>
                             <#if statusPet == "IN_HAND">
                                 <p>This pet in hand!</p>
                             </#if>
+                            <#else>
+                                <a href="/signIn"><h4>Sign In to take pets at home</h4></a>
+
                         </#if>
                     </div>
                 </div>

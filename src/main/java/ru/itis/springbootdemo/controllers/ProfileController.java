@@ -30,6 +30,5 @@ public class ProfileController {
         List<Pet> pets = petsRepository.findPetsByUserId(user.getId());
         model.addAttribute("pets",pets);
         return "profile";
-
     }
 }
